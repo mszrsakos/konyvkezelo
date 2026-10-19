@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="text" placeholder="Cím" id="cim">
+    <input type="text" placeholder="Szerző" id="szerzo">
+    <input type="text" placeholder="Kiadási év" id="kiadasiEv">
+    <input type="text" placeholder="Oldalszám" id="oldalszam"> 
+    <button id="hozzaad" onclick="konyvHozzaadasa()">Könyv hozzáadása</button>
+    <label>Adatok</label>
+    <div id="adatok"></div>
+    <table id="tablazat">
+        <thead>
+            <tr></tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <h2>Elérhető könyvek</h2>
+    <table id="szabadTablazat">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+    <p id="legregebbi"></p>
+    <p id="legvastagabb"></p>
+    <p id="atlagOldalSzam"></p>
+    
+
+
+    <script src="app.js"></script>
+</body>
+</html>
