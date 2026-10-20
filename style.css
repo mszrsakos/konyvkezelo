@@ -1,6 +1,196 @@
-table{
-    text-align: center;
-    border : 1px solid black;
-    border-collapse: collapse;
-    width: 70%
+
+/* Alapbeállítások */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f6fb;
+    color: #1e293b;
+    margin: 0;
+    padding: 40px;
+}
+
+/* Oldal címei */
+h2 {
+    color: #1e3a5f;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #1e3a5f;
+    margin-top: 30px;
+}
+
+label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 25px 0 10px;
+}
+
+/* Űrlap mezők */
+input,
+select {
+    padding: 12px 15px;
+    margin: 5px 5px 10px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 15px;
+    color: #1e293b;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input {
+    width: 220px;
+}
+
+input:focus,
+select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px #dbeafe;
+}
+
+select {
+    cursor: pointer;
+}
+
+/* Gombok */
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 17px;
+    margin: 5px 5px 5px 0;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Kategóriaszűrő */
+#legordulo {
+    margin-left: 10px;
+}
+
+/* Adatok és statisztikák */
+#adatok {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#legregebbi,
+#legvastagabb,
+#atlagOldalSzam {
+    background-color: white;
+    border-left: 4px solid #3b82f6;
+    padding: 14px 18px;
+    margin: 10px 0;
+    border-radius: 6px;
+    max-width: 500px;
+    font-weight: 500;
+}
+
+/* Táblázatok */
+table {
+    width: 100%;
+    max-width: 1200px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 15px 0 30px;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.06);
+}
+
+thead {
+    background-color: #1e3a5f;
+    color: white;
+}
+
+th {
+    padding: 15px 12px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+td {
+    padding: 13px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+/* Váltakozó sorszínek */
+tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+tbody tr:hover {
+    background-color: #eff6ff;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Táblázatban lévő gombok */
+td button {
+    padding: 8px 12px;
+    font-size: 13px;
+    margin: 2px;
+}
+
+/* Kategória szerinti eredmény */
+#kategoria {
+    white-space: pre-line;
+    background-color: white;
+    border-radius: 10px;
+    padding: 18px;
+    max-width: 500px;
+    line-height: 1.8;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.06);
+}
+
+/* Mobil nézet */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    select {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #hozzaad {
+        width: 100%;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 }

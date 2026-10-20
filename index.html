@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Könyvkezelő</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,8 +12,15 @@
     <input type="text" placeholder="Kiadási év" id="kiadasiEv">
     <input type="text" placeholder="Oldalszám" id="oldalszam"> 
     <button id="hozzaad" onclick="konyvHozzaadasa()">Könyv hozzáadása</button>
+    <select id="legordulo" onchange="megjelenitesLegordulo()">
+        <option value="">Minden kategória</option>
+        <option value="Történelmi">Történelmi</option>
+        <option value="Regény">Regény</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Sci-fi">Sci-fi</option>
+    </select>
     <label>Adatok</label>
-    <div id="adatok"></div>
+
     <table id="tablazat">
         <thead>
             <tr></tr>
@@ -28,6 +35,12 @@
     <p id="legregebbi"></p>
     <p id="legvastagabb"></p>
     <p id="atlagOldalSzam"></p>
+    <h3>Szűrés kategória szerint</h3>
+    <button onclick="megjelenitKategoriaSzerint('Történelmi')">Történelmi</button>
+    <button onclick="megjelenitKategoriaSzerint('Regény')">Regény</button>
+    <button onclick="megjelenitKategoriaSzerint('Fantasy')">Fantasy</button>
+    <button onclick="megjelenitKategoriaSzerint('Sci-fi')">Sci-fi</button>
+    <p id="kategoria"></p>
     
 
 
