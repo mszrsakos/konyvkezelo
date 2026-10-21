@@ -10,7 +10,6 @@ function Konyv(cim, szerzo, kiadasiEv, oldalszam, kategoria) {
 
 Konyv.prototype.kolcsonoz = function() {
     if (!this.kolcsonozheto) return false;
-
     this.kolcsonozve = true;
     this.kolcsonozheto = false;
     return true;
@@ -18,7 +17,6 @@ Konyv.prototype.kolcsonoz = function() {
 
 Konyv.prototype.visszahoz = function() {
     if (!this.kolcsonozve) return false;
-
     this.kolcsonozve = false;
     this.kolcsonozheto = true;
     return true;
@@ -44,13 +42,24 @@ const konyvek = [
 
 let adatok=document.getElementById("adatok")
 function konyvHozzaadasa() {
-    document.getElementById("cim").value;
-    document.getElementById("szerzo").value;
-    document.getElementById("kiadasiEv").value;
-    document.getElementById("oldalszam").value;
-    const ujKonyv = new Konyv(document.getElementById("cim").value, document.getElementById("szerzo").value, document.getElementById("kiadasiEv").value, document.getElementById("oldalszam").value, document.getElementById("kategoriaValaszto").value);
+    const cim = document.getElementById("cim").value;
+    const szerzo = document.getElementById("szerzo").value;
+    const kiadasiEv = Number(document.getElementById("kiadasiEv").value);
+    const oldalszam = Number(document.getElementById("oldalszam").value);
+    const kategoria = document.getElementById("kategoriaValaszto").value;
+
+    const ujKonyv = new Konyv(
+        cim,
+        szerzo,
+        kiadasiEv,
+        oldalszam,
+        kategoria
+    );
+
     konyvek.push(ujKonyv);
+
     konyvekMegjelenitese();
+    szabadKonyvekMegjelenitese();
 }
 function kolcsonzes(index) {
     konyvek[index].kolcsonoz();
@@ -98,48 +107,29 @@ function konyvekMegjelenitese() {
     </tr>`;
     }).join("");
 
-    szabadKonyvekMegjelenitese();
-    legRegebbiKonyv();
-    legVastagabb();
+
     atlagOldalszam()
 }
 
-function szabadKonyvekMegjelenitese() {
-    const thead = document.querySelector("#szabadTablazat thead");
-    const tbody = document.querySelector("#szabadTablazat tbody");
-
-    thead.innerHTML = `<tr>
-        <th>Cím</th>
-        <th>Szerző</th>
-        <th>Kiadás éve</th>
-        <th>Oldalszám</th>
-        <th>Kategória</th>
-    </tr>`;
-
-    tbody.innerHTML = konyvek
-        .filter((konyv) => konyv.kolcsonozve === false)
-        .map((konyv) => `<tr>
-            <td>${konyv.cim}</td>
-            <td>${konyv.szerzo}</td>
-            <td>${konyv.kiadasiEv}</td>
-            <td>${konyv.oldalszam}</td>
-            <td>${konyv.kategoria}</td>
-        </tr>`)
-        .join("");
+function osszesKonyvMegjelenitese() {
+    document.getElementById("legordulo").value = "";
+    konyvekMegjelenitese();
 }
 
 
-    
-function legRegebbiKonyv(){
-    let legregebbi=konyvek[0]
-    for(let i=1;i<konyvek.length;i++){
 
-        if(konyvek[i].kiadasiEv< legregebbi.kiadasiEv){
-            legregebbi=konyvek[i];
+let legregebbiK=document.getElementById("legregebbi")
+function legRegebbiKonyv() {
+    let legregebbi = konyvek[0];
+
+    for (let i = 1; i < konyvek.length; i++) {
+        if (konyvek[i].kiadasiEv < legregebbi.kiadasiEv) {
+            legregebbi = konyvek[i];
         }
     }
-    document.getElementById("legregebbi").innerHTML=`A legrégebbi könyv: ${legregebbi.cim} (${legregebbi.kiadasiEv})
-    `
+
+    legregebbiK.innerHTML = `A legrégebbi könyv: ${legregebbi.cim} (${legregebbi.kiadasiEv})`;
+    legregebbiK.style.visibility = "visible";
 }
 function legVastagabb(){
     let legvastagabb=konyvek[0]
@@ -149,7 +139,7 @@ function legVastagabb(){
             legvastagabb=konyvek[i];
         }
     }
-    document.getElementById("legvastagabb").innerHTML=`A legrégebbi könyv: ${legvastagabb.cim} (${legvastagabb.oldalszam})
+    document.getElementById("legvastagabb").innerHTML=`A legvastagabb könyv: ${legvastagabb.cim} (${legvastagabb.oldalszam})
     `
 }
 function atlagOldalszam(){
@@ -161,10 +151,9 @@ function atlagOldalszam(){
         db++
 
     }
-    console.log(osszOldal)
-    console.log(db)
+
     document.getElementById("atlagOldalSzam").innerHTML=`Átlag oldalszám: ${Math.round(osszOldal/db)} oldal`
-    console.log(atlagOldal)
+
 }
 function megjelenitKategoriaSzerint(kategoria){
     let szoveg = kategoria + " kategória:\n";

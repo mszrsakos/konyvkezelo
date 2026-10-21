@@ -1,5 +1,5 @@
 
-/* Alapbeállítások */
+
 * {
     box-sizing: border-box;
 }
@@ -12,7 +12,7 @@ body {
     padding: 40px;
 }
 
-/* Oldal címei */
+
 h2 {
     color: #1e3a5f;
     margin-top: 35px;
@@ -31,7 +31,7 @@ label {
     margin: 25px 0 10px;
 }
 
-/* Űrlap mezők */
+
 input,
 select {
     padding: 12px 15px;
@@ -59,7 +59,7 @@ select {
     cursor: pointer;
 }
 
-/* Gombok */
+
 button {
     background-color: #2563eb;
     color: white;
@@ -82,12 +82,12 @@ button:active {
     transform: translateY(0);
 }
 
-/* Kategóriaszűrő */
+
 #legordulo {
     margin-left: 10px;
 }
 
-/* Adatok és statisztikák */
+
 #adatok {
     background-color: white;
     border-radius: 10px;
@@ -107,7 +107,7 @@ button:active {
     font-weight: 500;
 }
 
-/* Táblázatok */
+
 table {
     width: 100%;
     max-width: 1200px;
@@ -138,7 +138,7 @@ td {
     font-size: 14px;
 }
 
-/* Váltakozó sorszínek */
+
 tbody tr:nth-child(even) {
     background-color: #f8fafc;
 }
@@ -151,14 +151,14 @@ tbody tr:last-child td {
     border-bottom: none;
 }
 
-/* Táblázatban lévő gombok */
+
 td button {
     padding: 8px 12px;
     font-size: 13px;
     margin: 2px;
 }
 
-/* Kategória szerinti eredmény */
+
 #kategoria {
     white-space: pre-line;
     background-color: white;
@@ -193,4 +193,28 @@ td button {
         overflow-x: auto;
         white-space: nowrap;
     }
+}
+
+.statisztikak {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin: 15px 0;
+}
+
+.statisztikak p {
+    flex: 1;
+    min-width: 250px;
+    max-width: 500px;
+    margin: 0;
+}
+
+
+#osszesKonyv {
+    background-color: #0f766e;
+}
+
+#osszesKonyv:hover {
+    background-color: #115e59;
 }

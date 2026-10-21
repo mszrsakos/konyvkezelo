@@ -11,7 +11,17 @@
     <input type="text" placeholder="Szerző" id="szerzo">
     <input type="text" placeholder="Kiadási év" id="kiadasiEv">
     <input type="text" placeholder="Oldalszám" id="oldalszam"> 
-    <button id="hozzaad" onclick="konyvHozzaadasa()">Könyv hozzáadása</button>
+    <select id="kategoriaValaszto">
+        <option value="Történelmi">Történelmi</option>
+        <option value="Regény">Regény</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Sci-fi">Sci-fi</option>
+    </select>
+
+    <button id="hozzaad" onclick="konyvHozzaadasa()">
+        Könyv hozzáadása
+    </button>
+
     <select id="legordulo" onchange="megjelenitesLegordulo()">
         <option value="">Minden kategória</option>
         <option value="Történelmi">Történelmi</option>
@@ -19,7 +29,32 @@
         <option value="Fantasy">Fantasy</option>
         <option value="Sci-fi">Sci-fi</option>
     </select>
-    <label>Adatok</label>
+
+<div class="statisztikak">
+
+        <div class="statisztika">
+            <button id="legregebbiBtn" onclick="legRegebbiKonyv()">
+                Legrégebbi könyv
+            </button>
+            <p id="legregebbi"></p>
+        </div>
+
+        <div class="statisztika">
+            <button id="legvastagabbKonyv" onclick="legVastagabb()">
+                Legvastagabb könyv
+            </button>
+            <p id="legvastagabb"></p>
+        </div>
+
+</div>
+
+    <p id="atlagOldalSzam"></p>
+
+    <button id="osszesKonyv" onclick="osszesKonyvMegjelenitese()">
+        Összes könyv
+    </button>
+
+<label>Adatok</label>
 
     <table id="tablazat">
         <thead>
@@ -27,20 +62,13 @@
         </thead>
         <tbody></tbody>
     </table>
-    <h2>Elérhető könyvek</h2>
+
     <table id="szabadTablazat">
         <thead></thead>
         <tbody></tbody>
     </table>
-    <p id="legregebbi"></p>
-    <p id="legvastagabb"></p>
-    <p id="atlagOldalSzam"></p>
-    <h3>Szűrés kategória szerint</h3>
-    <button onclick="megjelenitKategoriaSzerint('Történelmi')">Történelmi</button>
-    <button onclick="megjelenitKategoriaSzerint('Regény')">Regény</button>
-    <button onclick="megjelenitKategoriaSzerint('Fantasy')">Fantasy</button>
-    <button onclick="megjelenitKategoriaSzerint('Sci-fi')">Sci-fi</button>
-    <p id="kategoria"></p>
+
+
     
 
 
