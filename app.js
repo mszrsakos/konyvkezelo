@@ -41,11 +41,21 @@ const konyvek = [
 
 
 let adatok=document.getElementById("adatok")
-function konyvHozzaadasa() {
-    const cim = document.getElementById("cim").value;
-    const szerzo = document.getElementById("szerzo").value;
-    const kiadasiEv = Number(document.getElementById("kiadasiEv").value);
-    const oldalszam = Number(document.getElementById("oldalszam").value);
+function konyvHozzaadasa(event) {
+    event.preventDefault();
+
+    const cim = document.getElementById("cim").value.trim();
+    const szerzo = document.getElementById("szerzo").value.trim();
+    const kiadasiEvSzoveg = document.getElementById("kiadasiEv").value.trim();
+    const oldalszamSzoveg = document.getElementById("oldalszam").value.trim();
+
+    if (cim === "" || szerzo === "" || kiadasiEvSzoveg === "" || oldalszamSzoveg === "") {
+        document.getElementById("adatok").innerHTML = "Kérlek töltsd ki az összes mezőt!";
+        return;
+    }
+
+    const kiadasiEv = Number(kiadasiEvSzoveg);
+    const oldalszam = Number(oldalszamSzoveg);
     const kategoria = document.getElementById("kategoriaValaszto").value;
 
     const ujKonyv = new Konyv(
@@ -59,7 +69,6 @@ function konyvHozzaadasa() {
     konyvek.push(ujKonyv);
 
     konyvekMegjelenitese();
-    szabadKonyvekMegjelenitese();
 }
 function kolcsonzes(index) {
     konyvek[index].kolcsonoz();

@@ -7,28 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input type="text" placeholder="Cím" id="cim">
-    <input type="text" placeholder="Szerző" id="szerzo">
-    <input type="text" placeholder="Kiadási év" id="kiadasiEv">
-    <input type="text" placeholder="Oldalszám" id="oldalszam"> 
-    <select id="kategoriaValaszto">
-        <option value="Történelmi">Történelmi</option>
-        <option value="Regény">Regény</option>
-        <option value="Fantasy">Fantasy</option>
-        <option value="Sci-fi">Sci-fi</option>
-    </select>
+    <form onsubmit="konyvHozzaadasa(event)">
+        <input type="text" placeholder="Cím" id="cim" required>
+        <input type="text" placeholder="Szerző" id="szerzo" required>
+        <input type="text" placeholder="Kiadási év" id="kiadasiEv" required>
+        <input type="text" placeholder="Oldalszám" id="oldalszam" required>
+        <select id="kategoriaValaszto">
+            <option value="Történelmi">Történelmi</option>
+            <option value="Regény">Regény</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Sci-fi">Sci-fi</option>
+        </select>
 
-    <button id="hozzaad" onclick="konyvHozzaadasa()">
-        Könyv hozzáadása
-    </button>
+        <button id="hozzaad" type="submit">
+            Könyv hozzáadása
+        </button>
+    </form>
 
     <select id="legordulo" onchange="megjelenitesLegordulo()">
-        <option value="">Minden kategória</option>
+        <option value="">Összes</option>
         <option value="Történelmi">Történelmi</option>
         <option value="Regény">Regény</option>
         <option value="Fantasy">Fantasy</option>
         <option value="Sci-fi">Sci-fi</option>
     </select>
+
 
 <div class="statisztikak">
 
